@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wmic csproduct:*)",
+      "Bash(wmic cpu:*)",
+      "Bash(wmic memorychip:*)",
+      "Bash(wmic path:*)",
+      "Bash(powershell -command \"Get-WmiObject Win32_Processor | Select-Object Name, NumberOfCores, NumberOfLogicalProcessors, MaxClockSpeed | Format-List; Get-WmiObject Win32_PhysicalMemory | Select-Object DeviceLocator, @{N=''Capacity_GB'';E={[math]::Round\\($_.Capacity/1GB\\)}}, Speed | Format-List; Get-WmiObject Win32_VideoController | Select-Object Name, @{N=''VRAM_GB'';E={[math]::Round\\($_.AdapterRAM/1GB\\)}} | Format-List\")"
+    ]
+  }
+}
